@@ -137,4 +137,5 @@ module "dns" {
   ttl     = 60
   zone_id = var.zone_id
   records = [join("", aws_elasticache_replication_group.default.*.primary_endpoint_address)]
+  depends_on    = [aws_elasticache_replication_group.default]
 }
